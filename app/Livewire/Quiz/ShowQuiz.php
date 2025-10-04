@@ -4,21 +4,22 @@ namespace App\Livewire\Quiz;
 
 use App\Models\Quiz;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Locked;
 use Livewire\Component;
-use Str;
 
-class QuizCard extends Component
+class ShowQuiz extends Component
 {
+    #[Locked]
     public Quiz $quiz;
 
     #[Computed]
-    public function description(): string
+    public function flashcards()
     {
-        return Str::of($this->quiz->description)->limit(50);
+        return $this->quiz->flashcards()->paginate();
     }
 
     public function render()
     {
-        return view("livewire.quiz.quiz-card");
+        return view("livewire.quiz.show-quiz");
     }
 }

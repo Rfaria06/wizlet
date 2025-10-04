@@ -1,12 +1,15 @@
+@php
+    use App\Models\Quiz;
+@endphp
+
 <div>
     <div>
-        <flux:heading size="xl">{{ __('Quizze') }}</flux:heading>
-        <flux:separator class="mb-5" />
+        <livewire:quiz.modify-quiz-modal :quiz="new Quiz()" />
 
-<div class="flex flex-wrap flex-row gap-4">
-        @foreach ($this->quizzes as $quiz)
-            <livewire:quiz.quiz-card :$quiz />
-        @endforeach
-</div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-5">
+            @foreach ($this->quizzes as $quiz)
+                <livewire:quiz.quiz-card :$quiz wire:key="{{ $quiz->id }}" />
+            @endforeach
+        </div>
     </div>
 </div>
