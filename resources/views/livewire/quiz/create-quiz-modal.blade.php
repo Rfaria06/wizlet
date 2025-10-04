@@ -15,7 +15,9 @@
 
             <flux:checkbox label="Öffentlich" wire:model="public" />
 
-            <flux:button variant="primary" type="submit" class="mt-5">Speichern</flux:button>
+            <flux:button variant="primary" type="submit" class="mt-5">
+                Speichern
+            </flux:button>
         </form>
     </flux:modal>
 </div>

@@ -1,6 +1,8 @@
 <div>
     <flux:modal.trigger name="update-quiz-modal">
-        <flux:button variant="primary" icon-trailing="pencil">Bearbeiten</flux:button>
+        <flux:button variant="primary" icon-trailing="pencil">
+            Bearbeiten
+        </flux:button>
     </flux:modal.trigger>
 
     <flux:modal name="update-quiz-modal" class="m-3 my-auto sm:mx-auto w-full">
@@ -15,7 +17,9 @@
 
             <flux:checkbox label="Öffentlich" wire:model="public" />
 
-            <flux:button variant="primary" type="submit" class="mt-5">Speichern</flux:button>
+            <flux:button variant="primary" type="submit" class="mt-5">
+                Speichern
+            </flux:button>
         </form>
     </flux:modal>
 </div>

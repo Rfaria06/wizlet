@@ -11,30 +11,30 @@ class UpdateQuizModal extends Component
 {
     public Quiz $quiz;
 
-    #[Validate("string|required|min:3|max:255")]
-    public string $name = "";
+    #[Validate('string|required|min:3|max:255')]
+    public string $name = '';
 
-    #[Validate("sometimes|string|nullable")]
-    public string $description = "";
+    #[Validate('sometimes|string|nullable')]
+    public string $description = '';
 
-    #[Validate("boolean|required")]
+    #[Validate('boolean|required')]
     public bool $public = true;
 
     public function save()
     {
-        $this->quiz->update($this->only("name", "description", "public"));
+        $this->quiz->update($this->only('name', 'description', 'public'));
 
-        Flux::toast("Quiz aktualisiert", variant: "success");
-        $this->redirectRoute("quiz.show", ["quiz" => $this->quiz]);
+        Flux::toast('Quiz aktualisiert', variant: 'success');
+        $this->redirectRoute('quiz.show', ['quiz' => $this->quiz]);
     }
 
     public function mount(Quiz $quiz)
     {
-        $this->fill($quiz->only("name", "description", "public"));
+        $this->fill($quiz->only('name', 'description', 'public'));
     }
 
     public function render()
     {
-        return view("livewire.quiz.update-quiz-modal");
+        return view('livewire.quiz.update-quiz-modal');
     }
 }

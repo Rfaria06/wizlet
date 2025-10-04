@@ -19,6 +19,6 @@ class QuizCard extends Component
 
     public function render()
     {
-        return view("livewire.quiz.quiz-card");
+        return view('livewire.quiz.quiz-card');
     }
 }
