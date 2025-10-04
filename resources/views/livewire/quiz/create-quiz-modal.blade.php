@@ -1,6 +1,6 @@
 <div>
     <flux:modal.trigger name="create-quiz-modal">
-        <flux:button variant="primary" icon-trailing="{{ $this->quiz->exists ? 'pencil' : 'plus' }}">{{ $this->quiz->exists ? "Bearbeiten" : "Neu" }}</flux:button>
+        <flux:button variant="primary" icon-trailing="plus">Neu</flux:button>
     </flux:modal.trigger>
 
     <flux:modal name="create-quiz-modal" class="m-3 my-auto sm:mx-auto w-full">

@@ -4,7 +4,7 @@
 
 <div>
     <div>
-        <livewire:quiz.modify-quiz-modal :quiz="new Quiz()" />
+        <livewire:quiz.create-quiz-modal />
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-5">
             @foreach ($this->quizzes as $quiz)

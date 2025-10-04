@@ -1,4 +1,4 @@
-<a class="h-36 grow" href="{{route('quiz.show', ['quiz' => $quiz])}}">
+<a class="h-36 grow" href="{{route('quiz.show', ['quiz' => $quiz])}}" wire:navigate>
 <flux:card class="h-36">
     <div>
         <flux:heading>{{ $quiz->name }}</flux:heading>
