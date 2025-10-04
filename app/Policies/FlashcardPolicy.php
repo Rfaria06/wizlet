@@ -2,10 +2,10 @@
 
 namespace App\Policies;
 
-use App\Models\Quiz;
+use App\Models\Flashcard;
 use App\Models\User;
 
-class QuizPolicy
+class FlashcardPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -18,7 +18,7 @@ class QuizPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Quiz $quiz): bool
+    public function view(User $user, Flashcard $flashcard): bool
     {
         return false;
     }
@@ -34,7 +34,7 @@ class QuizPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Quiz $quiz): bool
+    public function update(User $user, Flashcard $flashcard): bool
     {
         return false;
     }
@@ -42,7 +42,7 @@ class QuizPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Quiz $quiz): bool
+    public function delete(User $user, Flashcard $flashcard): bool
     {
         return false;
     }
@@ -50,7 +50,7 @@ class QuizPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Quiz $quiz): bool
+    public function restore(User $user, Flashcard $flashcard): bool
     {
         return false;
     }
@@ -58,7 +58,7 @@ class QuizPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Quiz $quiz): bool
+    public function forceDelete(User $user, Flashcard $flashcard): bool
     {
         return false;
     }

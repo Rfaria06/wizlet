@@ -12,96 +12,94 @@
         digitIndices: @js(range(1, $digits)),
         init() {
             $nextTick(() => {
-                this.$refs.input1?.focus();
-            });
+                this.$refs.input1?.focus()
+            })
         },
         getInput(index) {
-            return this.$refs['input' + index];
+            return this.$refs['input' + index]
         },
         setValue(index, value) {
-            this.getInput(index).value = value;
+            this.getInput(index).value = value
         },
         getCode() {
-            return this.digitIndices
-                .map(i => this.getInput(i).value)
-                .join('');
+            return this.digitIndices.map((i) => this.getInput(i).value).join('')
         },
         updateHiddenField() {
-            this.$refs.code.value = this.getCode();
-            this.$refs.code.dispatchEvent(new Event('input', { bubbles: true }));
-            this.$refs.code.dispatchEvent(new Event('change', { bubbles: true }));
+            this.$refs.code.value = this.getCode()
+            this.$refs.code.dispatchEvent(new Event('input', { bubbles: true }))
+            this.$refs.code.dispatchEvent(new Event('change', { bubbles: true }))
         },
         handleNumberKey(index, key) {
-            this.setValue(index, key);
+            this.setValue(index, key)
 
             if (index < this.totalDigits) {
-                this.getInput(index + 1).focus();
+                this.getInput(index + 1).focus()
             }
 
             $nextTick(() => {
-                this.updateHiddenField();
-            });
+                this.updateHiddenField()
+            })
         },
         handleBackspace(index) {
-            const currentInput = this.getInput(index);
+            const currentInput = this.getInput(index)
 
             if (currentInput.value !== '') {
-                currentInput.value = '';
-                this.updateHiddenField();
-                return;
+                currentInput.value = ''
+                this.updateHiddenField()
+                return
             }
 
             if (index <= 1) {
-                return;
+                return
             }
 
-            const previousInput = this.getInput(index - 1);
+            const previousInput = this.getInput(index - 1)
 
-            previousInput.value = '';
-            previousInput.focus();
+            previousInput.value = ''
+            previousInput.focus()
 
-            this.updateHiddenField();
+            this.updateHiddenField()
         },
         handleKeyDown(index, event) {
-            const key = event.key;
+            const key = event.key
 
             if (/^[0-9]$/.test(key)) {
-                event.preventDefault();
-                this.handleNumberKey(index, key);
-                return;
+                event.preventDefault()
+                this.handleNumberKey(index, key)
+                return
             }
 
             if (key === 'Backspace') {
-                event.preventDefault();
-                this.handleBackspace(index);
-                return;
+                event.preventDefault()
+                this.handleBackspace(index)
+                return
             }
         },
         handlePaste(event) {
-            event.preventDefault();
+            event.preventDefault()
 
-            const pastedText = (event.clipboardData || window.clipboardData).getData('text');
-            const numericOnly = pastedText.replace(/[^0-9]/g, '');
-            const digitsToFill = Math.min(numericOnly.length, this.totalDigits);
+            const pastedText = (
+                event.clipboardData || window.clipboardData
+            ).getData('text')
+            const numericOnly = pastedText.replace(/[^0-9]/g, '')
+            const digitsToFill = Math.min(numericOnly.length, this.totalDigits)
 
-            this.digitIndices
-                .slice(0, digitsToFill)
-                .forEach(index => {
-                    this.setValue(index, numericOnly[index - 1]);
-                });
+            this.digitIndices.slice(0, digitsToFill).forEach((index) => {
+                this.setValue(index, numericOnly[index - 1])
+            })
 
             if (numericOnly.length >= this.totalDigits) {
-                this.updateHiddenField();
+                this.updateHiddenField()
             }
         },
         clearAll() {
-            this.digitIndices.forEach(index => {
-                this.setValue(index, '');
-            });
+            this.digitIndices.forEach((index) => {
+                this.setValue(index, '')
+            })
 
-            this.$refs.code.value = '';
-            this.$refs.input1?.focus();
-        }
+            this.$refs.code.value = ''
+            this.$refs.input1?.focus()
+        },
     }"
 >
     <div class="flex items-center">

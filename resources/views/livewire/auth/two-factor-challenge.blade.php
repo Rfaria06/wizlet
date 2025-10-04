@@ -8,18 +8,18 @@
                 code: '',
                 recovery_code: '',
                 toggleInput() {
-                    this.showRecoveryInput = !this.showRecoveryInput;
+                    this.showRecoveryInput = ! this.showRecoveryInput
 
-                    this.code = '';
-                    this.recovery_code = '';
+                    this.code = ''
+                    this.recovery_code = ''
 
-                    $dispatch('clear-2fa-auth-code');
+                    $dispatch('clear-2fa-auth-code')
 
                     $nextTick(() => {
                         this.showRecoveryInput
                             ? this.$refs.recovery_code?.focus()
-                            : $dispatch('focus-2fa-auth-code');
-                    });
+                            : $dispatch('focus-2fa-auth-code')
+                    })
                 },
             }"
         >
@@ -77,20 +77,28 @@
                         @enderror
                     </div>
 
-                    <flux:button
-                        variant="primary"
-                        type="submit"
-                        class="w-full"
-                    >
+                    <flux:button variant="primary" type="submit" class="w-full">
                         {{ __('Continue') }}
                     </flux:button>
                 </div>
 
                 <div class="mt-5 space-x-0.5 text-sm leading-5 text-center">
                     <span class="opacity-50">{{ __('or you can') }}</span>
-                    <div class="inline font-medium underline cursor-pointer opacity-80">
-                        <span x-show="!showRecoveryInput" @click="toggleInput()">{{ __('login using a recovery code') }}</span>
-                        <span x-show="showRecoveryInput" @click="toggleInput()">{{ __('login using an authentication code') }}</span>
+                    <div
+                        class="inline font-medium underline cursor-pointer opacity-80"
+                    >
+                        <span
+                            x-show="!showRecoveryInput"
+                            @click="toggleInput()"
+                        >
+                            {{ __('login using a recovery code') }}
+                        </span>
+                        <span
+                            x-show="showRecoveryInput"
+                            @click="toggleInput()"
+                        >
+                            {{ __('login using an authentication code') }}
+                        </span>
                     </div>
                 </div>
             </form>

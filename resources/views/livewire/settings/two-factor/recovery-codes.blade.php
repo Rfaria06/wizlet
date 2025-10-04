@@ -5,8 +5,10 @@
 >
     <div class="px-6 space-y-2">
         <div class="flex items-center gap-2">
-            <flux:icon.lock-closed variant="outline" class="size-4"/>
-            <flux:heading size="lg" level="3">{{ __('2FA Recovery Codes') }}</flux:heading>
+            <flux:icon.lock-closed variant="outline" class="size-4" />
+            <flux:heading size="lg" level="3">
+                {{ __('2FA Recovery Codes') }}
+            </flux:heading>
         </div>
         <flux:text variant="subtle">
             {{ __('Recovery codes let you regain access if you lose your 2FA device. Store them in a secure password manager.') }}
@@ -14,7 +16,9 @@
     </div>
 
     <div class="px-6">
-        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div
+            class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+        >
             <flux:button
                 x-show="!showRecoveryCodes"
                 icon="eye"
@@ -60,7 +64,11 @@
         >
             <div class="mt-3 space-y-3">
                 @error('recoveryCodes')
-                    <flux:callout variant="danger" icon="x-circle" heading="{{$message}}"/>
+                    <flux:callout
+                        variant="danger"
+                        icon="x-circle"
+                        heading="{{ $message }}"
+                    />
                 @enderror
 
                 @if (filled($recoveryCodes))
@@ -69,7 +77,7 @@
                         role="list"
                         aria-label="Recovery codes"
                     >
-                        @foreach($recoveryCodes as $code)
+                        @foreach ($recoveryCodes as $code)
                             <div
                                 role="listitem"
                                 class="select-text"
