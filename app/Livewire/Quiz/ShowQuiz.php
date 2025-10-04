@@ -16,22 +16,25 @@ class ShowQuiz extends Component
     #[Computed]
     public function flashcards()
     {
-        return $this->quiz->flashcards()->paginate();
+        return $this->quiz
+            ->flashcards()
+            ->orderBy('id', 'desc')
+            ->get();
     }
 
     public function delete()
     {
-        if (!$this->quiz->user()->is(auth()->user())) {
+        if (! $this->quiz->user()->is(auth()->user())) {
             abort(403);
         }
 
         $this->quiz->delete();
-        Flux::toast("Quiz gelöscht");
-        $this->redirectRoute("quiz.list", navigate: false);
+        Flux::toast('Quiz gelöscht');
+        $this->redirectRoute('quiz.list', navigate: false);
     }
 
     public function render()
     {
-        return view("livewire.quiz.show-quiz");
+        return view('livewire.quiz.show-quiz');
     }
 }
