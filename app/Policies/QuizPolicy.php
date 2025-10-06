@@ -20,7 +20,7 @@ class QuizPolicy
      */
     public function view(User $user, Quiz $quiz): bool
     {
-        return false;
+        return $quiz->public || $quiz->user()->is($user);
     }
 
     /**
@@ -28,7 +28,7 @@ class QuizPolicy
      */
     public function create(User $user): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -36,7 +36,7 @@ class QuizPolicy
      */
     public function update(User $user, Quiz $quiz): bool
     {
-        return false;
+        return $quiz->user()->is($user);
     }
 
     /**
@@ -44,7 +44,7 @@ class QuizPolicy
      */
     public function delete(User $user, Quiz $quiz): bool
     {
-        return false;
+        return $quiz->user()->is($user);
     }
 
     /**
@@ -52,7 +52,7 @@ class QuizPolicy
      */
     public function restore(User $user, Quiz $quiz): bool
     {
-        return false;
+        return $quiz->user()->is($user);
     }
 
     /**

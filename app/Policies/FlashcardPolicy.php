@@ -20,7 +20,9 @@ class FlashcardPolicy
      */
     public function view(User $user, Flashcard $flashcard): bool
     {
-        return false;
+        $quiz = $flashcard->quiz()->get(["public", "user_id"]);
+
+        return $quiz->public || $quiz->user_id === $user->id;
     }
 
     /**
@@ -28,7 +30,7 @@ class FlashcardPolicy
      */
     public function create(User $user): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -36,7 +38,9 @@ class FlashcardPolicy
      */
     public function update(User $user, Flashcard $flashcard): bool
     {
-        return false;
+        $quiz = $flashcard->quiz()->get(["user_id"]);
+
+        return $quiz->user_id === $user->id;
     }
 
     /**
@@ -44,7 +48,9 @@ class FlashcardPolicy
      */
     public function delete(User $user, Flashcard $flashcard): bool
     {
-        return false;
+        $quiz = $flashcard->quiz()->get(["user_id"]);
+
+        return $quiz->user_id === $user->id;
     }
 
     /**
@@ -52,7 +58,9 @@ class FlashcardPolicy
      */
     public function restore(User $user, Flashcard $flashcard): bool
     {
-        return false;
+        $quiz = $flashcard->quiz()->get(["user_id"]);
+
+        return $quiz->user_id === $user->id;
     }
 
     /**
