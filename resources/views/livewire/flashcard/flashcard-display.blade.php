@@ -7,7 +7,9 @@
         <flux:card
             class="absolute inset-0 flex justify-center items-center backface-hidden"
         >
-            <flux:heading size="xl" class="break-all">{{ $flashcard->question }}</flux:heading>
+            <flux:heading size="xl" class="break-all">
+                {{ $flashcard->question }}
+            </flux:heading>
         </flux:card>
 
         <!-- Back -->
