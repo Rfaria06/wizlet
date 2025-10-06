@@ -18,19 +18,19 @@ class ShowQuiz extends Component
     {
         return $this->quiz
             ->flashcards()
-            ->orderBy('id', 'desc')
+            ->orderBy("id", "desc")
             ->get();
     }
 
     public function delete()
     {
-        if (! $this->isOwner()) {
+        if (!$this->isOwner()) {
             abort(403);
         }
 
         $this->quiz->delete();
-        Flux::toast('Quiz gelöscht');
-        $this->redirectRoute('quiz.list', navigate: false);
+        Flux::toast("Quiz gelöscht");
+        $this->redirectRoute("quiz.list", navigate: false);
     }
 
     public function isOwner(): bool
@@ -40,7 +40,7 @@ class ShowQuiz extends Component
 
     public function deleteFlashcard(int $flashcardId): void
     {
-        if (! $this->isOwner()) {
+        if (!$this->isOwner()) {
             abort(403);
         }
 
@@ -49,14 +49,14 @@ class ShowQuiz extends Component
             ->whereId($flashcardId)
             ->delete();
         $this->redirectRoute(
-            'quiz.show',
-            ['quiz' => $this->quiz],
+            "quiz.show",
+            ["quiz" => $this->quiz],
             navigate: true
         );
     }
 
     public function render()
     {
-        return view('livewire.quiz.show-quiz');
+        return view("livewire.quiz.show-quiz");
     }
 }

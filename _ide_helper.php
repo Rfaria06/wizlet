@@ -23830,6 +23830,17 @@ namespace App\Livewire\Settings {
             }
     }
 
+namespace App\Livewire\Quiz {
+    /**
+     */
+    class QuizList extends \Livewire\Component {
+            }
+    /**
+     */
+    class ShowQuiz extends \Livewire\Component {
+            }
+    }
+
 namespace App\Livewire\Auth {
     /**
      */

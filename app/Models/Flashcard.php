@@ -14,7 +14,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $answer
  * @property int $quiz_id
  * @property-read \App\Models\Quiz $quiz
- *
  * @method static \Database\Factories\FlashcardFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Flashcard newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Flashcard newQuery()
@@ -25,7 +24,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Flashcard whereQuestion($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Flashcard whereQuizId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Flashcard whereUpdatedAt($value)
- *
  * @mixin \Eloquent
  */
 class Flashcard extends Model

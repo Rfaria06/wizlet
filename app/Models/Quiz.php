@@ -18,7 +18,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Flashcard> $flashcards
  * @property-read int|null $flashcards_count
  * @property-read \App\Models\User $user
- *
  * @method static \Database\Factories\QuizFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Quiz newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Quiz newQuery()
@@ -30,7 +29,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Quiz wherePublic($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Quiz whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Quiz whereUserId($value)
- *
  * @mixin \Eloquent
  */
 class Quiz extends Model

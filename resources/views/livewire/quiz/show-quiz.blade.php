@@ -29,7 +29,10 @@
     <flux:separator class="my-5" />
 
     @can('update', $quiz)
+    <div class="flex flex-row items-center gap-2">
         <livewire:flashcard.create-flashcard-modal :quizId="$quiz->id" />
+        <livewire:quiz.generate-flashcards-modal :$quiz />
+    </div>
     @endcan
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-5">
