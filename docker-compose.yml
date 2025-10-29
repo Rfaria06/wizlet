@@ -1,0 +1,30 @@
+services:
+    db:
+        image: postgres:17-alpine
+        restart: unless-stopped
+        container_name: wizlet_db
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_USER: wizlet
+            POSTGRES_PASSWORD: wizlet
+            POSTGRES_ROOT_PASSWORD: wizlet
+            POSTGRES_DB: wizlet
+
+    web:
+        build:
+            dockerfile: Dockerfile
+            args:
+                FLUX_USERNAME: ${FLUX_USERNAME}
+                FLUX_LICENSE_KEY: ${FLUX_LICENSE_KEY}
+        restart: unless-stopped
+        container_name: wizlet_web
+        ports:
+            - "8000:8000"
+        environment:
+            DB_CONNECTION: pgsql
+            DB_URL: postgresql://wizlet:wizlet@wizlet_db/wizlet
+            APP_URL: http://localhost:8000
+        depends_on:
+            db:
+                condition: service_started
