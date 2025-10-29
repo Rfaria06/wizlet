@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Quiz\Learn;
 use App\Livewire\Quiz\QuizList;
 use App\Livewire\Quiz\ShowQuiz;
 use App\Livewire\Settings\Appearance;
@@ -41,6 +42,7 @@ Route::middleware(['auth'])->group(function () {
     })->name('dashboard');
     Route::get('/quizzes', QuizList::class)->name('quiz.list');
     Route::get('/quizzes/{quiz}', ShowQuiz::class)->name('quiz.show');
+    Route::get('/quizzes/{quiz}/learn', Learn::class)->name('quiz.learn');
 });
 
 require __DIR__ . '/auth.php';

@@ -1,6 +1,6 @@
 <div class="min-w-full">
     <div class="flex flex-row justify-between items-center">
-        <flux:heading sile="xl">{{ $quiz->name }}</flux:heading>
+        <flux:heading size="xl">{{ $quiz->name }}</flux:heading>
         @can('update', $quiz)
             <div class="flex flex-row gap-1 justify-around">
                 <livewire:quiz.update-quiz-modal :$quiz />
@@ -28,12 +28,20 @@
 
     <flux:separator class="my-5" />
 
-    @can('update', $quiz)
     <div class="flex flex-row items-center gap-2">
-        <livewire:flashcard.create-flashcard-modal :quizId="$quiz->id" />
-        <livewire:quiz.generate-flashcards-modal :$quiz />
+        <flux:button
+            :href="route('quiz.learn', $quiz)"
+            wire:navigate.hover
+            variant="primary"
+            icon-trailing="book-open"
+        >
+            Lernen
+        </flux:button>
+        @can('update', $quiz)
+            <livewire:flashcard.create-flashcard-modal :quizId="$quiz->id" />
+            <livewire:quiz.generate-flashcards-modal :$quiz />
+        @endcan
     </div>
-    @endcan
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-5">
         @foreach ($this->flashcards as $flashcard)
