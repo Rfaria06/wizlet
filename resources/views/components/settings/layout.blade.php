@@ -2,10 +2,10 @@
     <div class="me-10 w-full pb-4 md:w-[220px]">
         <flux:navlist>
             <flux:navlist.item :href="route('settings.profile')" wire:navigate>
-                {{ __('Profile') }}
+                {{ __('Profil') }}
             </flux:navlist.item>
             <flux:navlist.item :href="route('settings.password')" wire:navigate>
-                {{ __('Password') }}
+                {{ __('Passwort') }}
             </flux:navlist.item>
             @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
                 <flux:navlist.item
@@ -20,7 +20,7 @@
                 :href="route('settings.appearance')"
                 wire:navigate
             >
-                {{ __('Appearance') }}
+                {{ __('Anzeige') }}
             </flux:navlist.item>
         </flux:navlist>
     </div>

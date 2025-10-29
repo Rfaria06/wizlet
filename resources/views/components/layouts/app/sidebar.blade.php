@@ -22,14 +22,6 @@
             <flux:navlist variant="outline">
                 <flux:navlist.group class="grid">
                     <flux:navlist.item
-                        icon="home"
-                        :href="route('dashboard')"
-                        wire:current
-                        wire:navigate.hover
-                    >
-                        {{ __('Dashboard') }}
-                    </flux:navlist.item>
-                    <flux:navlist.item
                         icon="folder"
                         :href="route('quiz.list')"
                         wire:current

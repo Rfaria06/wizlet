@@ -2,8 +2,8 @@
     @include('partials.settings-heading')
 
     <x-settings.layout
-        :heading="__('Profile')"
-        :subheading="__('Update your name and email address')"
+        :heading="__('Profil')"
+        :subheading="__('Aktualisiere deinen Namen und deine Email- Adresse')"
     >
         <form
             wire:submit="updateProfileInformation"
@@ -30,13 +30,13 @@
                 @if (auth()->user() instanceof \Illuminate\Contracts\Auth\MustVerifyEmail &&! auth()->user()->hasVerifiedEmail())
                     <div>
                         <flux:text class="mt-4">
-                            {{ __('Your email address is unverified.') }}
+                            {{ __('Deine Email ist nicht bestätigt.') }}
 
                             <flux:link
                                 class="text-sm cursor-pointer"
                                 wire:click.prevent="resendVerificationNotification"
                             >
-                                {{ __('Click here to re-send the verification email.') }}
+                                {{ __('Klicke hier, um die verifizierungs- Mail erneut zu senden.') }}
                             </flux:link>
                         </flux:text>
 
@@ -44,7 +44,7 @@
                             <flux:text
                                 class="mt-2 font-medium !dark:text-green-400 !text-green-600"
                             >
-                                {{ __('A new verification link has been sent to your email address.') }}
+                                {{ __('Neue verifizierungs- Mail gesendet.') }}
                             </flux:text>
                         @endif
                     </div>
@@ -54,12 +54,12 @@
             <div class="flex items-center gap-4">
                 <div class="flex items-center justify-end">
                     <flux:button variant="primary" type="submit" class="w-full">
-                        {{ __('Save') }}
+                        {{ __('Speichern') }}
                     </flux:button>
                 </div>
 
                 <x-action-message class="me-3" on="profile-updated">
-                    {{ __('Saved.') }}
+                    {{ __('Gespeichert.') }}
                 </x-action-message>
             </div>
         </form>

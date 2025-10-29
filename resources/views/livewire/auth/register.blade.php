@@ -1,7 +1,7 @@
 <div class="flex flex-col gap-6">
     <x-auth-header
-        :title="__('Create an account')"
-        :description="__('Enter your details below to create your account')"
+        :title="__('Konto erstellen')"
+        :description="__('Fülle die Details aus, um dein Konto zu erstellen')"
     />
 
     <!-- Session Status -->
@@ -16,13 +16,13 @@
             required
             autofocus
             autocomplete="name"
-            :placeholder="__('Full name')"
+            :placeholder="__('Ganzer Name')"
         />
 
         <!-- Email Address -->
         <flux:input
             wire:model="email"
-            :label="__('Email address')"
+            :label="__('Email')"
             type="email"
             required
             autocomplete="email"
@@ -32,7 +32,7 @@
         <!-- Password -->
         <flux:input
             wire:model="password"
-            :label="__('Password')"
+            :label="__('Passwort')"
             type="password"
             required
             autocomplete="new-password"
@@ -43,17 +43,17 @@
         <!-- Confirm Password -->
         <flux:input
             wire:model="password_confirmation"
-            :label="__('Confirm password')"
+            :label="__('Password bestätigen')"
             type="password"
             required
             autocomplete="new-password"
-            :placeholder="__('Confirm password')"
+            :placeholder="__('Password bestätigen')"
             viewable
         />
 
         <div class="flex items-center justify-end">
             <flux:button type="submit" variant="primary" class="w-full">
-                {{ __('Create account') }}
+                {{ __('Konto erstellen') }}
             </flux:button>
         </div>
     </form>
@@ -61,9 +61,9 @@
     <div
         class="space-x-1 rtl:space-x-reverse text-center text-sm text-zinc-600 dark:text-zinc-400"
     >
-        <span>{{ __('Already have an account?') }}</span>
+        <span>{{ __('Schon ein Konto?') }}</span>
         <flux:link :href="route('login')" wire:navigate>
-            {{ __('Log in') }}
+            {{ __('Login') }}
         </flux:link>
     </div>
 </div>
