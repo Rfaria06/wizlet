@@ -26,7 +26,7 @@ class Learn extends Component
 
     public function next(): void
     {
-        if ($this->flashcardIndex < $this->flashcards->count()) {
+        if ($this->flashcardIndex < ($this->flashcards->count() - 1)) {
             $this->flashcardIndex++;
         }
     }
