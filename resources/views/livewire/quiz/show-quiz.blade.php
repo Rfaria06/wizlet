@@ -29,14 +29,17 @@
     <flux:separator class="my-5" />
 
     <div class="flex flex-row items-center gap-2">
-        <flux:button
-            :href="route('quiz.learn', $quiz)"
-            wire:navigate.hover
-            variant="primary"
-            icon-trailing="book-open"
-        >
-            Lernen
-        </flux:button>
+        @if ($this->showLearnButton)
+            <flux:button
+                :href="route('quiz.learn', $quiz)"
+                wire:navigate.hover
+                variant="primary"
+                icon-trailing="book-open"
+            >
+                Lernen
+            </flux:button>
+        @endif
+
         @can('update', $quiz)
             <livewire:flashcard.create-flashcard-modal :quizId="$quiz->id" />
             <livewire:quiz.generate-flashcards-modal :$quiz />

@@ -22,6 +22,12 @@ class ShowQuiz extends Component
             ->get();
     }
 
+    #[Computed]
+    public function showLearnButton(): bool
+    {
+        return $this->quiz->flashcards->isNotEmpty();
+    }
+
     public function delete()
     {
         if (!$this->isOwner()) {
