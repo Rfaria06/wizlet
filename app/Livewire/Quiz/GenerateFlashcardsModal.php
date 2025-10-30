@@ -20,8 +20,8 @@ class GenerateFlashcardsModal extends Component
         if (
             !$this->quiz ||
             auth()
-                ->user()
-                ->cant("update", $this->quiz)
+            ->user()
+            ->cant("update", $this->quiz)
         ) {
             abort(403);
         }
@@ -30,9 +30,9 @@ class GenerateFlashcardsModal extends Component
         CreateFlashcards::dispatch(auth()->user(), $this->prompt, $this->quiz);
         Flux::modals()->close();
         Flux::toast(
-            "Check back in a few moments to see the generated flashcards",
+            "Lade die Seite in einigen Momenten neu, um die generierten Lernkarten zu sehen.",
             variant: "success",
-            heading: "Generation started!",
+            heading: "Generierung hat begonnen!",
             duration: 0 // indefinetely
         );
     }
