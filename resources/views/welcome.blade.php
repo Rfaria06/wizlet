@@ -6,6 +6,8 @@
     <body class="flex flex-col items-center justify-center h-[100vh]">
         <div class="flex items-center gap-4 mb-5">
             <x-app-logo />
+            <flux:separator :vertical="true" />
+            <flux:button icon-trailing="eye" href="https://github.com/Rfaria06/wizlet" target="_blank">GitHub (Quellcode)</flux:button>
         </div>
         @if (Route::has('login'))
             <nav class="flex items-center justify-end gap-4">
